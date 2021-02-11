@@ -585,7 +585,7 @@ function Version({
                 {version}
               </option>
             )}
-            <option key="master" value="master">
+            <option key={versions[0]} value={versions[0]}>
               master
             </option>
             {versions.map((v) => (
