@@ -73,7 +73,7 @@ function ThirdPartyRegistryList(): React.ReactElement {
         <title>Third Party Modules | Deno</title>
       </Head>
       <CookieBanner />
-      <div className="bg-gray">
+      <div className="bg-gray dark:bg-black-700">
         <Header subtitle="Third Party Modules" widerContent={true} />
         <RegistryInstructions
           isOpen={overlayOpen}
@@ -81,11 +81,11 @@ function ThirdPartyRegistryList(): React.ReactElement {
         />
         <div>
           <div className="max-w-screen-lg mx-auto px-4 sm:px-6 md:px-8 mt-8">
-            <dt className="text-lg leading-6 font-medium text-gray-900">
+            <dt className="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100">
               What is deno.land/x?
             </dt>
             <dd className="mt-2">
-              <p className="text-base leading-6 text-gray-500">
+              <p className="text-base leading-6 text-gray-500 dark:text-gray-200">
                 <span className="font-semibold">deno.land/x</span> is a hosting
                 service for Deno scripts. It caches releases of open source
                 modules stored on GitHub and serves them at one easy to remember
@@ -111,7 +111,7 @@ function ThirdPartyRegistryList(): React.ReactElement {
             </label>
             <input
               id="query"
-              className="block w-full px-4 py-2 leading-normal bg-white border border-gray-200 rounded-lg outline-none shadow hover:shadow-sm focus:shadow-sm appearance-none focus:border-gray-300 hover:border-gray-300 mt-1"
+              className="block w-full px-4 py-2 leading-normal bg-white border border-gray-200 rounded-lg outline-none shadow hover:shadow-sm focus:shadow-sm appearance-none focus:border-gray-300 hover:border-gray-300 mt-1 dark:bg-black-800 dark:border-black-900 dark:focus:border-black-950 dark:hover:border-black-950 dark:hover-black-950 dark:text-gray-100"
               type="text"
               placeholder={
                 !resp ? "Search" : `Search through ${resp.totalCount} modules`
@@ -122,13 +122,13 @@ function ThirdPartyRegistryList(): React.ReactElement {
           </div>
           <div className="sm:max-w-screen-lg sm:mx-auto sm:px-6 md:px-8 pb-4 sm:pb-12">
             {resp === undefined ? (
-              <div className="bg-white sm:shadow border border-gray-200 overflow-hidden sm:rounded-md mt-4">
+              <div className="bg-white sm:shadow border border-gray-200 overflow-hidden sm:rounded-md mt-4 dark:bg-black-800 dark:border-black-900">
                 <ul>
                   {Array(20)
                     .fill(null)
                     .map((_, i) => (
                       <li
-                        className={i !== 0 ? "border-t border-gray-200" : ""}
+                        className={i !== 0 ? "border-t border-black-950" : ""}
                         key={i}
                       >
                         <div className="flex items-center px-4 sm:px-6 py-4">
@@ -138,14 +138,14 @@ function ThirdPartyRegistryList(): React.ReactElement {
                                 <div className="h-3 bg-blue-100 w-1/3 sm:w-1/5 md:w-1/6"></div>
                               </div>
                               <div className="mt-1 flex items-center">
-                                <div className="h-3 bg-gray-100 w-5/6 sm:w-4/5 md:w-3/4"></div>
+                                <div className="h-3 bg-gray-100 w-5/6 sm:w-4/5 md:w-3/4 dark:bg-black-800"></div>
                               </div>
                             </div>
                           </div>
                           <div className="ml-6 mr-4 flex items-center">
-                            <div className="h-3 bg-gray-100 w-4"></div>
+                            <div className="h-3 bg-gray-100 w-4 dark:bg-black-800"></div>
                             <svg
-                              className="ml-1 text-gray-100 w-5 h-5"
+                              className="ml-1 text-gray-100 w-5 h-5 dark:text-black-600"
                               fill="currentColor"
                               viewBox="0 0 20 20"
                             >
@@ -170,9 +170,9 @@ function ThirdPartyRegistryList(): React.ReactElement {
                       </li>
                     ))}
                 </ul>
-                <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
+                <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6 dark:bg-black-800 dark:border-black-600">
                   <div className="flex-1 flex justify-between items-center sm:hidden">
-                    <button className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-gray-100 text-sm leading-5 font-medium rounded-md bg-white">
+                    <button className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-gray-100 text-sm leading-5 font-medium rounded-md bg-white dark:bg-black-800">
                       Previous
                     </button>
                     <div className="text-base leading-6 text-gray-500">
@@ -244,7 +244,7 @@ function ThirdPartyRegistryList(): React.ReactElement {
                 Failed to load modules
               </div>
             ) : (
-              <div className="bg-white sm:shadow border border-gray-200 overflow-hidden sm:rounded-md mt-4">
+              <div className="bg-white sm:shadow border border-gray-200 overflow-hidden sm:rounded-md mt-4 dark:bg-black-800 dark:border-black-900">
                 {resp.results.length == 0 ? (
                   <div className="p-4 text-center sm:text-left text-sm leading-5 font-medium text-gray-500 truncate">
                     No modules found
@@ -275,12 +275,12 @@ function ThirdPartyRegistryList(): React.ReactElement {
                       );
 
                       return (
-                        <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
+                        <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6 dark:bg-black-700 dark:border-black-800">
                           <div className="flex-1 flex justify-between items-center sm:hidden">
                             <button
                               disabled={!hasPrevious}
                               onClick={() => setPage(page - 1)}
-                              className={`relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md bg-white ${
+                              className={`relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md bg-white dark:bg-black-800 dark:border-black-600 ${
                                 hasPrevious
                                   ? "text-gray-700 hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700"
                                   : "text-gray-500 cursor-default"
@@ -294,10 +294,10 @@ function ThirdPartyRegistryList(): React.ReactElement {
                             <button
                               disabled={!hasNext}
                               onClick={() => setPage(page + 1)}
-                              className={`relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md bg-white ml-4 ${
+                              className={`relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md bg-white ml-4 dark:bg-black-800 dark:border-black-600 ${
                                 hasNext
-                                  ? "text-gray-700 hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700"
-                                  : "text-gray-500 cursor-default"
+                                  ? "text-gray-700 hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 dark:text-gray-400"
+                                  : "text-gray-500 cursor-default dark:text-gray-600"
                               } transition ease-in-out duration-150`}
                             >
                               Next
@@ -305,7 +305,7 @@ function ThirdPartyRegistryList(): React.ReactElement {
                           </div>
                           <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
                             <div>
-                              <p className="text-sm leading-5 text-gray-700">
+                              <p className="text-sm leading-5 text-gray-700 dark:text-gray-500">
                                 Showing{" "}
                                 <span className="font-medium">
                                   {(page - 1) * PER_PAGE + 1}
@@ -326,7 +326,7 @@ function ThirdPartyRegistryList(): React.ReactElement {
                                 <button
                                   disabled={!hasPrevious}
                                   onClick={() => setPage(page - 1)}
-                                  className={`relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm leading-5 font-medium ${
+                                  className={`relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm leading-5 font-medium dark:bg-black-800 dark:border-gray-900 ${
                                     hasPrevious
                                       ? "text-gray-500 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500"
                                       : "text-gray-300 cursor-default"
@@ -349,8 +349,8 @@ function ThirdPartyRegistryList(): React.ReactElement {
                                   onClick={() => setPage(1)}
                                   className={`inline-flex -ml-px relative items-center px-4 py-2 border border-gray-300 text-sm leading-5 ${
                                     page === 1
-                                      ? "bg-gray-100 font-semibold text-gray-800"
-                                      : "bg-white font-medium text-gray-700"
+                                      ? "bg-gray-100 font-semibold text-gray-800 dark:bg-black-700 dark:text-gray-500 dark:border-black-600"
+                                      : "bg-white font-medium text-gray-800 dark:bg-black-800 dark:hover:text-gray-300 dark:border-black-900"
                                   } hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150`}
                                 >
                                   1
@@ -361,18 +361,18 @@ function ThirdPartyRegistryList(): React.ReactElement {
                                       onClick={() => setPage(2)}
                                       className={`hidden md:inline-flex -ml-px relative items-center px-4 py-2 border border-gray-300 text-sm leading-5 ${
                                         page === 2
-                                          ? "bg-gray-100 font-semibold text-gray-800"
-                                          : "bg-white font-medium text-gray-700"
+                                          ? "bg-gray-100 font-semibold text-gray-800 dark:bg-black-700 dark:text-gray-500 dark:border-black-600"
+                                          : "bg-white font-medium text-gray-700 dark:bg-black-800 dark:hover:text-gray-300 dark:border-black-900"
                                       } hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150`}
                                     >
                                       2
                                     </button>
-                                    <span className="inline-flex md:hidden -ml-px relative items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700">
+                                    <span className="inline-flex md:hidden -ml-px relative items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700  dark:bg-gray-800 dark:border-gray-900 dark:text-gray-400">
                                       ...
                                     </span>
                                   </>
                                 ) : (
-                                  <span className="-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700">
+                                  <span className="-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700 dark:bg-gray-800 dark:border-gray-900 dark:text-gray-400">
                                     ...
                                   </span>
                                 )}
@@ -380,8 +380,8 @@ function ThirdPartyRegistryList(): React.ReactElement {
                                   onClick={() => setPage(centerPage - 1)}
                                   className={`hidden md:inline-flex -ml-px relative items-center px-4 py-2 border border-gray-300 text-sm leading-5 ${
                                     page === centerPage - 1
-                                      ? "bg-gray-100 font-semibold text-gray-800"
-                                      : "bg-white font-medium text-gray-700"
+                                      ? "bg-gray-100 font-semibold text-gray-800 dark:bg-black-700 dark:text-gray-500 dark:border-black-600"
+                                      : "bg-white font-medium text-gray-700 dark:bg-black-800 dark:hover:text-gray-300 dark:border-black-900"
                                   } hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150`}
                                 >
                                   {centerPage - 1}
@@ -390,8 +390,8 @@ function ThirdPartyRegistryList(): React.ReactElement {
                                   onClick={() => setPage(centerPage)}
                                   className={`inline-flex -ml-px relative items-center px-4 py-2 border border-gray-300 text-sm leading-5 ${
                                     page === centerPage
-                                      ? "bg-gray-100 font-semibold text-gray-800"
-                                      : "bg-white font-medium text-gray-700"
+                                      ? "bg-gray-100 font-semibold text-gray-800 dark:bg-black-700 dark:hover:text-gray-400 dark:border-black-600"
+                                      : "bg-white font-medium text-gray-700 dark:hover:text-gray-300 dark:bg-black-800 dark:border-black-900"
                                   } hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150`}
                                 >
                                   {centerPage}
@@ -400,8 +400,8 @@ function ThirdPartyRegistryList(): React.ReactElement {
                                   onClick={() => setPage(centerPage + 1)}
                                   className={`hidden md:inline-flex -ml-px relative items-center px-4 py-2 border border-gray-300 text-sm leading-5 ${
                                     page === centerPage + 1
-                                      ? "bg-gray-100 font-semibold text-gray-800"
-                                      : "bg-white font-medium text-gray-700"
+                                      ? "bg-gray-100 font-semibold text-gray-800 dark:hover:text-gray-300 dark:border-black-700"
+                                      : "bg-white font-medium text-gray-700 dark:bg-black-800 dark:hover:text-gray-300 dark:border-black-900"
                                   } hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150`}
                                 >
                                   {centerPage + 1}
@@ -412,18 +412,18 @@ function ThirdPartyRegistryList(): React.ReactElement {
                                       onClick={() => setPage(pageCount - 1)}
                                       className={`hidden md:inline-flex -ml-px relative items-center px-4 py-2 border border-gray-300 text-sm leading-5 ${
                                         page === pageCount - 1
-                                          ? "bg-gray-100 font-semibold text-gray-800"
-                                          : "bg-white font-medium text-gray-700"
+                                          ? "bg-gray-100 font-semibold text-gray-800 dark:bg-black-700 dark:text-gray-500 dark:border-black-600"
+                                          : "bg-white font-medium text-gray-700 dark:bg-black-800 dark:hover:text-gray-300 dark:border-black-900"
                                       } hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150`}
                                     >
                                       {pageCount - 1}
                                     </button>
-                                    <span className="inline-flex md:hidden -ml-px relative items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700">
+                                    <span className="inline-flex md:hidden -ml-px relative items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700 dark:bg-black-800 dark:border-black-900">
                                       ...
                                     </span>
                                   </>
                                 ) : (
-                                  <span className="-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700">
+                                  <span className="-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700 dark:bg-black-800 dark:border-black-900">
                                     ...
                                   </span>
                                 )}
@@ -431,8 +431,8 @@ function ThirdPartyRegistryList(): React.ReactElement {
                                   onClick={() => setPage(pageCount)}
                                   className={`inline-flex -ml-px relative items-center px-4 py-2 border border-gray-300 text-sm leading-5 ${
                                     page === pageCount
-                                      ? "bg-gray-100 font-semibold text-gray-800"
-                                      : "bg-white font-medium text-gray-700"
+                                      ? "bg-gray-100 font-semibold text-gray-800 dark:bg-black-700 dark:text-gray-500 dark:border-black-600"
+                                      : "bg-white font-medium text-gray-700 dark:bg-black-800 dark:hover:text-gray-300 dark:border-black-900"
                                   } hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150`}
                                 >
                                   {pageCount}
@@ -440,7 +440,7 @@ function ThirdPartyRegistryList(): React.ReactElement {
                                 <button
                                   disabled={!hasNext}
                                   onClick={() => setPage(page + 1)}
-                                  className={`-ml-px relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm leading-5 font-medium ${
+                                  className={`-ml-px relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 dark:border-black-900 bg-white dark:bg-black-800 text-sm leading-5 font-medium ${
                                     hasNext
                                       ? "text-gray-500 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500"
                                       : "text-gray-300 cursor-default"
@@ -476,7 +476,7 @@ function ThirdPartyRegistryList(): React.ReactElement {
             <dl className="md:grid md:grid-cols-2 md:gap-8">
               <div>
                 <div>
-                  <dt className="text-lg leading-6 font-medium text-gray-900">
+                  <dt className="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100">
                     How do I use modules on deno.land/x?
                   </dt>
                   <dd className="mt-2">
@@ -491,7 +491,7 @@ function ThirdPartyRegistryList(): React.ReactElement {
                   </dd>
                 </div>
                 <div className="mt-12">
-                  <dt className="text-lg leading-6 font-medium text-gray-900">
+                  <dt className="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100">
                     Can I find functionality built-in to Deno here?
                   </dt>
                   <dd className="mt-2">
@@ -509,7 +509,7 @@ function ThirdPartyRegistryList(): React.ReactElement {
                   </dd>
                 </div>
                 <div className="mt-12">
-                  <dt className="text-lg leading-6 font-medium text-gray-900">
+                  <dt className="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100">
                     How do I add a module to deno.land/x?
                   </dt>
                   <dd className="mt-2">
@@ -520,7 +520,7 @@ function ThirdPartyRegistryList(): React.ReactElement {
                     <span className="block w-full rounded-md shadow-sm mt-4">
                       <button
                         type="submit"
-                        className="w-full flex justify-center py-2 px-4 border border-gray-300 text-md font-medium rounded-md text-gray-700 bg-gray-100 hover:text-gray-500 hover:bg-gray-50 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition duration-150 ease-in-out"
+                        className="w-full flex justify-center py-2 px-4 border border-gray-300 text-md font-medium rounded-md text-gray-700 bg-gray-100 hover:text-gray-500 hover:bg-gray-50 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition duration-150 ease-in-out dark:border-black-900 dark:bg-black-800 dark:text-gray-400"
                         onClick={() => setOverlayOpen(true)}
                       >
                         Add a module
@@ -532,7 +532,7 @@ function ThirdPartyRegistryList(): React.ReactElement {
               <div className="mt-12 md:mt-0">
                 <div>
                   <dt
-                    className="text-lg leading-6 font-medium text-gray-900"
+                    className="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100"
                     id="warning"
                   >
                     I am getting a warning when importing from deno.land/x!
@@ -553,7 +553,7 @@ function ThirdPartyRegistryList(): React.ReactElement {
                   </dd>
                 </div>
                 <div className="mt-12">
-                  <dt className="text-lg leading-6 font-medium text-gray-900">
+                  <dt className="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100">
                     Can I edit or remove a module on deno.land/x?
                   </dt>
                   <dd className="mt-2">
@@ -570,14 +570,19 @@ function ThirdPartyRegistryList(): React.ReactElement {
             </dl>
           </div>
           <div className="max-w-screen-lg mx-auto pt-4 pb-8 sm:pt-8 sm:pb-12 px-4 sm:px-6 lg:pt-12 lg:pb-16 lg:px-8">
-            <h4 className="font-semibold text-2xl" id="stats">
+            <h4
+              className="font-semibold text-2xl dark:text-gray-100"
+              id="stats"
+            >
               Stats
             </h4>
             {stats ? (
               <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-8">
                 <div>
-                  <h5 className="font-medium text-lg">New modules</h5>
-                  <div className="bg-white sm:shadow border border-gray-200 overflow-hidden rounded-md mt-2">
+                  <h5 className="font-medium text-lg dark:text-gray-100">
+                    New modules
+                  </h5>
+                  <div className="bg-white sm:shadow border border-gray-200 overflow-hidden rounded-md mt-2 dark:bg-black-800 dark:border-black-900">
                     <ModuleList
                       modules={stats.recently_added_modules.map((v) => ({
                         name: v.name,
@@ -589,8 +594,10 @@ function ThirdPartyRegistryList(): React.ReactElement {
                   </div>
                 </div>
                 <div>
-                  <h5 className="font-medium text-lg">Recently updated</h5>
-                  <div className="bg-white sm:shadow border border-gray-200 overflow-hidden rounded-md mt-2">
+                  <h5 className="font-medium text-lg dark:text-gray-100">
+                    Recently updated
+                  </h5>
+                  <div className="bg-white sm:shadow border border-gray-200 overflow-hidden rounded-md mt-2 dark:bg-black-800 dark:border-black-900">
                     <ModuleList
                       modules={stats.recently_uploaded_versions.map((v) => ({
                         name: v.name,
@@ -626,9 +633,14 @@ function ModuleList({
       {modules.map((meta, i) => {
         const link = `/x/${meta.name}`;
         return (
-          <li className={i !== 0 ? "border-t border-gray-200" : ""} key={i}>
+          <li
+            className={
+              i !== 0 ? "border-t border-gray-200 dark:border-black-900" : ""
+            }
+            key={i}
+          >
             <Link href={link}>
-              <a className="block hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out">
+              <a className="block hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out dark:hover:bg-black-700 dark:focus:bg-black-700">
                 <div className="flex items-center px-4 sm:px-6 py-2">
                   <div className="min-w-0 flex-1 flex items-center">
                     <div className="min-w-0 flex-1">
